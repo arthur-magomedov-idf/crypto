@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+  <changeSet id="2022-02-05-01-artur.mag" author="artur.mag">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <tableExists tableName="ticker"/>
+      </not>
+    </preConditions>
+    <comment>Создание таблицы ticker</comment>
+    <sql>
+      CREATE TABLE ticker
+      (
+        id        bigint(20)    PRIMARY KEY,
+        symbol    varchar(20)   DEFAULT NULL,
+        name      varchar(32)   DEFAULT NULL,
+        name_id   varchar(32)   DEFAULT NULL,
+        rank      int(4)        DEFAULT NULL,
+        price_usd double(20, 2) DEFAULT NULL
+      ) engine = InnoDB DEFAULT charset = utf8;
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>
