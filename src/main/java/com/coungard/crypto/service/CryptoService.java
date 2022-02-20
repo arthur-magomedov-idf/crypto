@@ -1,9 +1,12 @@
 package com.coungard.crypto.service;
 
-import com.coungard.crypto.model.TickerDto;
+import com.coungard.crypto.model.TickerResponse;
+import com.coungard.crypto.entity.Ticker;
 import java.util.List;
 
 public interface CryptoService {
 
-  List<TickerDto> getTickerInfo(Long id);
+  List<TickerResponse> getTickerInfo(Long id);
+
+  void saveTickerInfo(Ticker tickerDto);
 }

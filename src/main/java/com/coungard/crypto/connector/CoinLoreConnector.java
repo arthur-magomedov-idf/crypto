@@ -1,6 +1,6 @@
 package com.coungard.crypto.connector;
 
-import com.coungard.crypto.model.TickerDto;
+import com.coungard.crypto.model.TickerResponse;
 import feign.Feign;
 import feign.Logger;
 import feign.Param;
@@ -24,5 +24,5 @@ public interface CoinLoreConnector {
   }
 
   @RequestLine("GET /ticker?id={id}")
-  List<TickerDto> coinTicker(@Param("id") Long id);
+  List<TickerResponse> coinTicker(@Param("id") Long id);
 }
